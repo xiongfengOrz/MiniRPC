@@ -1,4 +1,4 @@
-
+// Copyright 2016,xiong feng.
 #ifndef MINIRPC_EVENT_H_
 #define MINIRPC_EVENT_H_
 

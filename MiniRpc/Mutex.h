@@ -6,7 +6,6 @@
 #include <assert.h>
 #include <pthread.h>
 
-
 namespace minirpc
 {
 class Mutex
