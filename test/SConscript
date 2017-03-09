@@ -1,0 +1,44 @@
+Import('env')
+
+test_env = env.Clone()
+test_env['objroot'] += '/test'
+test_env['srcroot'] += '/minirpc'
+test_env['extension'] = 'cpp'
+test_env.Append(CPPPATH=[test_env['srcroot'],
+  env['objroot'] + '/test'])
+ 
+test_env.Append(LIBPATH=[env['objroot']+'/minirpc',])
+test_env.Prepend(LIBS=
+  [
+    'minirpc',
+  ])
+
+test_src_files = [
+  'UnitTest_ReactorLoop',
+  'UnitTest_ReactorLoop_IO_Event',
+  'UnitTest_Buffer',
+  'UnitTest_IterNetAddress',
+  'UnitTest_IterNetFunc',
+  'UnitTest_Thread',
+]
+
+
+for file in test_src_files:
+  test_env.Program(file, [file + ".cpp"])
+ 
+env.ProtocolBuffer('echo.proto')
+
+service_src_files = [
+   'UnitTest_ProtobufHelper',
+   'UnitTest_RpcClient',
+   #'UnitTest_RpcServer',
+   #'TestServer',
+   'TestClient',
+   'UnitTest_RpcChannel',
+   'UnitTest_RpcServiceServer',
+   'BenchTest',
+]
+for file in service_src_files:
+  test_env.Program(file, [file + '.cpp', 'echo.pb.cc'])
+
+
