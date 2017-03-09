@@ -1,0 +1,48 @@
+from glob import glob
+Import('env')
+
+src_env = env.Clone()
+src_env['extension'] = 'cpp'
+src_env['srcroot'] += '/minirpc'
+src_env['objroot'] += '/minirpc'
+
+Export('src_env')
+
+src_files = [
+  'ReactorLoop.cpp',
+  'Thread.cpp',
+  'Event.cpp',
+  'IOMultiplex.cpp',
+  'EpollMultiplex.cpp',
+  'PollMultiplex.cpp',
+  'ThreadPool.cpp',
+  'Buffer.cpp',
+  'IterNetAddress.cpp',
+  'IterNetFunc.cpp',
+  'RpcChannnel.cpp'
+ ]
+
+all_src_file=[ Glob('*.cpp')]
+
+eventrpc_header_files = [
+  'Mutex.h',
+  'Task.h',
+  'ReactorLoop.h',
+  'Thread.h',
+  'Event.h',
+  'messageHandler.h',
+  'IOMultiplex.h',
+  'EpollMultiplex.h',
+  'PollMultiplex.h',
+  'Condition.h',
+  'ThreadPool.h',
+  'Buffer.h',
+  'IterNetAddress.h',
+  'IterNetFunc.h',
+  'RpcChannnel.h',
+]
+#print all_src_file
+minirpc = src_env.StaticLibrary('minirpc', all_src_file)
+env.Install("/usr/local/lib", minirpc)
+env.Install("/usr/local/include/minirpc", eventrpc_header_files)
+env.Alias('install', ['/usr/local/lib', '/usr/local/include/minirpc'])
