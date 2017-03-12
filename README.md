@@ -50,7 +50,7 @@ MiniRpc必须依赖的第三方库只有Protobuf。在在编译前，系统需�
 #### 编译安装方法
 进入MiniRpc根目录。
 项目没有使用Makefile，而是使用SCons。Scons使用Python来编写，虽然性能不及Makefile，但胜在简单易懂，在项目不大的时候，是个不错的选择。
-直接运行SCons即可。
+直接运行SCons即可。Scons的使用可以看[这里](http://scons.org/)。
  
 # 如何使用
 #### 编写proto文件
