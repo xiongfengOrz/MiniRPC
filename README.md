@@ -96,13 +96,13 @@ class EchoServerMessageHandler : public ServerMessageHandler
   bool handlePacket(const MessageHeader &header, Buffer* buffer) override
   {
     if (header.opcode != CLIENT_ECHO) 
-	{
+    {
       LOG(ERROR) << "opcode error: " << header.opcode;
       return false;
     }
     echo::EchoRequest request;
     if (!buffer->deserializeMessage(&request, header.length)) 
-	{
+    {
       LOG(ERROR) << "deserializeMessage error: " << header.length;
       return false;
     }
@@ -131,20 +131,20 @@ class EchoClientMessageHandler : public ServerMessageHandler
   bool handlePacket(const MessageHeader &header, Buffer* buffer) override
   {
     if (header.opcode != SERVER_ECHO) 
-	{
+    {
       LOG(ERROR) << "opcode error: " << header.opcode;
       return false;
     }
     echo::EchoResponse response;
     if (!buffer->deserializeMessage(&response, header.length)) 
-	{
+    {
       LOG(ERROR) << "deserializeMessage error: " << header.opcode;
       monitor_->notify();
       return false;
     }
     LOG(INFO) << "response: " << response.response() << ", count: " << kCount;
     if (kCount == kMaxConnection) 
-	{
+    {
       monitor_->notify();
     }
     return true;
