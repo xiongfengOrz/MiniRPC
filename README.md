@@ -76,7 +76,7 @@ service EchoService
 同时在程序中添加标志用来指示包的类型
 ```c++
 const static uint32_t CLIENT_ECHO  = 0x1;
-const static uint32_t SERVER_ECHO = 0x2;
+const static uint32_t SERVER_ECHO  = 0x2;
 ```
 
 #### 补充自己的代码
@@ -90,10 +90,6 @@ class EchoServerMessageHandler : public ServerMessageHandler
  public:
   EchoServerMessageHandler(RpcConnection *connection)
     : ServerMessageHandler(connection) 
-  {
-  }
-
-  virtual ~EchoServerMessageHandler() 
   {
   }
 
@@ -129,10 +125,6 @@ class EchoClientMessageHandler : public ServerMessageHandler
                            Condition *monitor)
     : ServerMessageHandler(channel),
       monitor_(monitor) 
-  {
-  }
-
-  virtual ~EchoClientMessageHandler() 
   {
   }
 
