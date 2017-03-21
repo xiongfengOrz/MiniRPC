@@ -96,7 +96,6 @@ RpcServer::Impl::Impl(std::vector<ReactorLoop*> loop, const string &host,
     manager_(new RpcConnectionFactory(factory)),
     acceptTask_(new AcceptTask(this)),
     round_robin_(0)
-
 {
 }
 
