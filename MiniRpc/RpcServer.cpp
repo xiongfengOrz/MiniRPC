@@ -33,10 +33,6 @@ class AcceptTask : public Task
   {
   }
 
-  virtual ~AcceptTask()
-  {
-  }
-
   std::string taskName()
   {
     return "AcceptTask";
@@ -54,10 +50,6 @@ class acceptEventHandler:public EventHandler
  public:
   explicit acceptEventHandler(RpcServer::Impl* impl)
     :impl_(impl)
-  {
-  }
-
-  virtual ~acceptEventHandler()
   {
   }
 
