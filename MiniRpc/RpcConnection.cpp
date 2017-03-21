@@ -21,9 +21,6 @@ class closeConnection :public Task
     :impl_(impl)
   {
   }
-    ~closeConnection()
-  {
-  }
 
   std::string taskName()
   {
@@ -45,9 +42,6 @@ class writeConnection :public Task
     :impl_(impl),
      opcode_(opcode),
      message_(message)
-  {
-  }
-    virtual ~writeConnection()
   {
   }
 
