@@ -67,10 +67,6 @@ class readEventHandler:public EventHandler
   {
   }
 
-  virtual ~readEventHandler()
-  {
-  }
-
   void handlePacket()  override;
 
  private:
