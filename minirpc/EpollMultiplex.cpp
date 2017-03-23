@@ -51,7 +51,7 @@ void EPollIOMultiplex::poll(int timeoutMs, EventList* activeEvents)
   }
   else if (numEvents == 0)
   {
-    LOG(INFO) << "nothing happended";
+        LOG(INFO) << "nothing happended";
   }
   else
   {
@@ -61,7 +61,7 @@ void EPollIOMultiplex::poll(int timeoutMs, EventList* activeEvents)
   	  LOG(ERROR) << "EPollIOMultiplex::poll()";
   	}
   }
-  return  ;
+  return;
 }
 
 void EPollIOMultiplex::fillActiveEvents(int numEvents,EventList* activeEvents) const
@@ -83,8 +83,8 @@ void EPollIOMultiplex::addEvent(Event* Event)
   	int fd = Event->fd();
   	if (index == kNew)
   	{
-      assert(Events_.find(fd) == Events_.end());
-      Events_[fd] = Event;
+          assert(Events_.find(fd) == Events_.end());
+          Events_[fd] = Event;
   	}
   	else 
   	{
@@ -113,11 +113,9 @@ void EPollIOMultiplex::addEvent(Event* Event)
 void EPollIOMultiplex::deleteEvent(Event* Event)
 {
 
-  int fd = Event->fd();
+  //int fd = Event->fd();
   //LOG(INFO) << "Delete fd = " << fd;
-  
   int index = Event->index();
-  //asert(index == kAdded || index == kDeleted);
   if (index == kAdded)
   {
     update(EPOLL_CTL_DEL, Event);

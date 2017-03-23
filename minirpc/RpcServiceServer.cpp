@@ -19,6 +19,7 @@
 
 
 using namespace minirpc;
+using std::string;
 
 
 class RpcServerMessageHandler : public ServerMessageHandler

@@ -23,7 +23,7 @@ class RpcClient
 {
  public:
   friend class RpcChannel;
-  RpcClient(ReactorLoop* loop, const string &host, int port,
+  RpcClient(ReactorLoop* loop, const std::string &host, int port,
   				ServerMessageHandlerFactory *factory);
 
   ~RpcClient();

@@ -17,7 +17,7 @@ namespace minirpc
 class RpcServer
 {
  public:   
-  RpcServer(std::vector<ReactorLoop*> loop, const string &host, int port,
+  RpcServer(std::vector<ReactorLoop*> loop, const std::string &host, int port,
                   ServerMessageHandlerFactory *factory);
   ~RpcServer();
   RpcServer(const RpcServer&) = delete;

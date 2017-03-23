@@ -10,6 +10,7 @@
 #include <sys/socket.h>
 
 using namespace minirpc;
+using std::string;
 
 static const uint32_t kMaxTryConnectTime = 5;
 

@@ -19,7 +19,7 @@ class ReactorLoop;
 class RpcServiceServer : public ThreadWorker
 {
  public:
-  RpcServiceServer(std::vector<ReactorLoop*> loop, const string &host, int port);
+  RpcServiceServer(std::vector<ReactorLoop*> loop, const std::string &host, int port);
   virtual ~RpcServiceServer();
 
   void RegisterService(::google::protobuf::Service *service);

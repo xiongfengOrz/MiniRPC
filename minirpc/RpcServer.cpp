@@ -24,6 +24,7 @@
 
 
 using namespace minirpc;
+using std::string;
 
 class AcceptTask : public Task
 {
@@ -139,7 +140,7 @@ void RpcServer::Impl::handleAccept()
     std::shared_ptr<RpcConnection> connection = manager_->getConnection(fd);
     LOG(INFO) << "connection " << connection 
             << "use count" << connection.use_count();
-    connection->setAddress(address);
+    connection->setAddress(client_address);
     auto size = loop_.size();
     round_robin_ = (round_robin_+1)%(size);
     if (size > 1 && round_robin_ == 0)

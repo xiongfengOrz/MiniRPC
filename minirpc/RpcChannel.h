@@ -13,7 +13,7 @@ class ReactorLoop;
 class RpcChannel : public ::google::protobuf::RpcChannel
 {
  public:
-  RpcChannel(ReactorLoop* loop, const string &host, int port);
+  RpcChannel(ReactorLoop* loop, const std::string &host, int port);
   virtual ~RpcChannel();
 
   bool connect();
@@ -27,7 +27,7 @@ class RpcChannel : public ::google::protobuf::RpcChannel
 
   class Impl;
  private:
-  ::std::unique_ptr<Impl> impl_;
+  std::unique_ptr<Impl> impl_;
 };
 
 };

@@ -56,7 +56,7 @@ class Mutex
 class MutexLock
 {
  public:
-  explicit MutexLock(const Mutex& mutex)
+  explicit MutexLock(Mutex& mutex)
 	  : mutex_(mutex)
   {
     mutex_.lock();

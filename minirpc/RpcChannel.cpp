@@ -21,6 +21,7 @@
 
 
 using namespace minirpc;
+using std::string;
 
 uint32_t kMethodTimeout = 5000;
 

@@ -13,7 +13,7 @@ namespace minirpc
 class Condition
 {
  public:
-  explicit Condition(const Mutex& mutex)
+  explicit Condition(Mutex& mutex)
     : mutex_(mutex)
   {
      pthread_cond_init(&pcond_, nullptr);

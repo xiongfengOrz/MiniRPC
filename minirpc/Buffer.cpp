@@ -89,7 +89,7 @@ static bool Send(int fd, const void *buf, size_t count, int *length)
   while ((ret > 0 && count > 0) || first_send )
   {
     first_send = false;
-    ret = ::send(fd, (reinterpret_cast<char*>(buf) + (*length)), count,
+    ret = ::send(fd, ((char*)(buf) + (*length)), count,
 		    MSG_NOSIGNAL | MSG_DONTWAIT);
     errno_copy = errno;
     if (ret > 0)

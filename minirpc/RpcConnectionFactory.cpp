@@ -36,9 +36,9 @@ void RpcConnectionFactory::setHandlerFactory(ServerMessageHandlerFactory *factor
 }
 
 
-shared_ptr<RpcConnection> RpcConnectionFactory::getConnection(int fd)
+std::shared_ptr<RpcConnection> RpcConnectionFactory::getConnection(int fd)
 {
-  shared_ptr<RpcConnection> connection (new RpcConnection(this));
+  std::shared_ptr<RpcConnection> connection (new RpcConnection(this));
   ServerMessageHandler *handler = factory_->CreateHandler(connection.get());//new
   connection->setHandler(handler);
   connection->setFd(fd);

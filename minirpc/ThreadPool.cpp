@@ -27,8 +27,8 @@ class ThreadPoolWorker : public ThreadWorker
 
 
 
-ThreadPool::ThreadPool(const string& nameArg = std::string("ThreadPool"),
-                      int maxSizei = 1)
+ThreadPool::ThreadPool(const std::string& nameArg = std::string("ThreadPool"),
+                      int maxSize = 1)
   : name_(nameArg),
     mutex_(),
     notEmpty_(mutex_),

@@ -4,6 +4,7 @@
 #include "glog/logging.h"
 
 using namespace minirpc;
+using std::string;
 
 NetAddress::NetAddress()
 {
@@ -18,7 +19,7 @@ NetAddress::NetAddress(const string &host, int port)
   Init();
 }
 
-explicit NetAddress::NetAddress(const struct sockaddr_in &address)
+NetAddress::NetAddress(const struct sockaddr_in &address)
   : address_(address)
 {
   Init();
@@ -30,8 +31,8 @@ void NetAddress::Init()
   inet_ntop(AF_INET, &address_.sin_addr, buffer, sizeof(buffer));
   std::stringstream stream;
   stream << ntohs(address_.sin_port);
-  string port = stream.str();
-  debug_string_ = string(buffer) + ":" + port;
+  std::string port = stream.str();
+  debug_string_ = std::string(buffer) + ":" + port;
 }
 
 const string& NetAddress::DebugString() const
