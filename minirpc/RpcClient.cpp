@@ -133,14 +133,13 @@ void RpcClient::Impl::connectToServer()
     saveOpcode.clear();
     saveMessage.clear();
     /*
-	uint32_t result = write(&output_buffer_, fd_);
+    uint32_t result = write(&output_buffer_, fd_);
     if (result == kSendMessageError) {
       LOG(ERROR) << "send message to "
         << serverAddress_.DebugString() << " error";
       Close();
     }
     */
-    //loop_->AddEvent(fd_, EVENT_READ | EVENT_WRITE, event_handler_);
     return;
   }
   ++connectTimes_;
@@ -198,7 +197,7 @@ void RpcClient::Impl::pushTask(Task *task)
 }
 
 
-///////////////////////////////////interface
+//interface
 RpcClient::RpcClient(ReactorLoop* loop,const string &host, int port,
 		     ServerMessageHandlerFactory *factory)
 	//: impl_{ std::make_unique<Impl>() }  //only c++14
