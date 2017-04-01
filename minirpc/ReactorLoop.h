@@ -46,7 +46,6 @@ class ReactorLoop
 
   void wakeUp();
   void runTask(std::shared_ptr<Task> handler);
-  //ReactorLoop* getReactorLoopOfCurrentThread();
   bool isInLoopThread() const;
   class Impl;
 
