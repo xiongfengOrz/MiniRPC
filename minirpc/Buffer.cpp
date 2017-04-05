@@ -8,15 +8,9 @@
 #include <sys/ioctl.h>
 #include <inttypes.h>
 #include <sys/types.h>
-
-
 #include "glog/logging.h"
 
-
-
-
 using namespace minirpc;
-
 
 template <class Type>
 static Type DeserializeBufferToValue(Buffer *input)
