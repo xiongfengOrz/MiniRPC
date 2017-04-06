@@ -63,9 +63,12 @@ class StopTask : public Task
  public:
   explicit StopTask(ReactorLoop::Impl *impl)
     : impl_(impl)
-  {}
+  {
+  }
+  
   virtual ~StopTask()
-  {}
+  {
+  }
 
   std::string taskName()
   {
