@@ -30,13 +30,6 @@ class Event
   void setCloseHandler(EventHandler* handler);
   void setErrorHandler(EventHandler* handler);
 
-  /*
-  void setReadHandler(MessageHandler&& handler);
-  void setWriteHandler(MessageHandler&& handler);
-  void setCloseHandler(MessageHandler&& handler);
-  void setErrorHandler(MessageHandler&& handler);
-  */
-
   int fd() const;
   int events() const;
   void set_revents(int revt);
