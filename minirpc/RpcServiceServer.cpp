@@ -80,7 +80,6 @@ class RpcServiceServer::Impl
 RpcServiceServer::Impl::Impl(std::vector<ReactorLoop*> loop, const string &host, int port)
   : factory_( new RpcServerMessageHandlerFactory(&method_manager_)),
     rpc_server_(loop, host, port, factory_)
-
 {
 }
 
@@ -108,7 +107,7 @@ void RpcServiceServer::Impl::run()
   start();
 }
 
-///////////////////////////interface///////////////
+//interface
 
 RpcServiceServer::RpcServiceServer(std::vector<ReactorLoop*> loop,
                 const string &host, int port)
